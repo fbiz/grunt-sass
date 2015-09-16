@@ -31,6 +31,10 @@ module.exports = function (grunt) {
 					return;
 				}
 
+				if (this.options.onComplete && this.options.onComplete.call === '[object Function]') {
+					res.css = this.options.onComplete(res.css.toString());
+				}
+
 				grunt.file.write(el.dest, res.css);
 
 				if (opts.sourceMap) {
