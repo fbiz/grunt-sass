@@ -31,7 +31,7 @@ module.exports = function (grunt) {
 					return;
 				}
 
-				if (this.options.onComplete && this.options.onComplete.call === '[object Function]') {
+				if (this.options.onComplete && typeof(this.options.onComplete) === 'function') {
 					res.css = this.options.onComplete(res.css.toString());
 				}
 
